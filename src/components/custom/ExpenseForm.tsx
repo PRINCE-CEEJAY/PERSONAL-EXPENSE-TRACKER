@@ -51,7 +51,7 @@ export default function ExpenseForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col justify-center items-center w-sm max-w-md space-y-3 shadow-lg p-2 rounded-lg text-input border-2 border-background"
+      className="flex flex-col justify-center items-center w-sm max-w-md space-y-3 shadow-lg p-2 rounded-lg text-primary border-2"
     >
       <p className="text-center font-bold text-2xl border-b mb-5 animate-pulse">
         Add Your Expenses
@@ -71,7 +71,7 @@ export default function ExpenseForm() {
           setFormInput((prev) => ({ ...prev, category: value }))
         }
       >
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full bg-red-800">
           <SelectValue placeholder="Select The Expense Category" />
         </SelectTrigger>
         <SelectContent>

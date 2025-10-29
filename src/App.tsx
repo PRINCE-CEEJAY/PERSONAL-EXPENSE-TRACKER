@@ -1,5 +1,3 @@
-// import Dashboard from './components/custom/Dashboard'
-// import Transactions from './components/custom/Transactions'
 import { useExpenseState } from "./hooks/useExpense";
 import ExpenseForm from "./components/custom/ExpenseForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,7 +8,7 @@ import Chart from "./components/custom/Chart";
 export default function App() {
   const state = useExpenseState();
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-foreground text-secondary min-w-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen min-w-screen text-primary min-w-screen">
       <p className="text-center animate-bounce ">{state.message}</p>
       <Router>
         <Routes>

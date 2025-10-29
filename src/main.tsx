@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.tsx";
 import ExpenseProvider from "../provider/ExpenseProvider.tsx";
 import Navbar from "./components/Navbar.tsx";
+import { ThemeProvider } from "../provider/theme-provider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ExpenseProvider>
-      <Navbar />
-      <App />
-    </ExpenseProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ExpenseProvider>
+        <Navbar />
+        <App />
+      </ExpenseProvider>
+    </ThemeProvider>
   </StrictMode>
 );
