@@ -10,10 +10,8 @@ import Chart from "./components/custom/Chart";
 export default function App() {
   const state = useExpenseState();
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-foreground min-w-screen">
-      <p className="text-center animate-bounce text-secondary">
-        {state.message}
-      </p>
+    <div className="flex flex-col justify-center items-center min-h-screen bg-foreground text-secondary min-w-screen">
+      <p className="text-center animate-bounce ">{state.message}</p>
       <Router>
         <Routes>
           <Route path="/" element={<ExpenseForm />} />

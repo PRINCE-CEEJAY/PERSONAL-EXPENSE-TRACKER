@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Chart() {
-  return <div>Chart</div>;
+  return (
+    <div className="flex flex-col justify-center items-center">
+      <h1>Chart</h1>
+    </div>
+  );
 }
