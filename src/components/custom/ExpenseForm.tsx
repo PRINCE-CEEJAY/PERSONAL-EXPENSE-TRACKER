@@ -21,7 +21,6 @@ export default function ExpenseForm() {
     category: "",
     amount: null,
   });
-  const [category, setCategory] = useState("");
 
   function showMessage(text: string) {
     dispatch({ type: "SET_MESSAGE", payload: text });
@@ -46,6 +45,7 @@ export default function ExpenseForm() {
       return;
     }
     showMessage("Added succesfully");
+    setFormInput({ id: Date.now(), category: "", title: "", amount: 0 });
   }
 
   return (
@@ -65,7 +65,12 @@ export default function ExpenseForm() {
         onChange={handleChange}
       />
 
-      <Select value={category} onValueChange={(value) => setCategory(value)}>
+      <Select
+        value={formInput.category}
+        onValueChange={(value) =>
+          setFormInput((prev) => ({ ...prev, category: value }))
+        }
+      >
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Select The Expense Category" />
         </SelectTrigger>
