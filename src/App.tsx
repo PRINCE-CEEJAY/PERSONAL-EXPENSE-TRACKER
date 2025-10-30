@@ -12,7 +12,7 @@ export default function App() {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen text-primary min-w-screen">
       <p className="text-center animate-bounce ">{state.message}</p>
-      <ExpenseList />
+      <ExpenseList/>
       <Router>
         <Routes>
           <Route path="/" element={<ExpenseForm />} />

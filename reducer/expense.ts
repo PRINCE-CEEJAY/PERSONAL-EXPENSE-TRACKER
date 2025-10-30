@@ -18,7 +18,7 @@ export const initialState = {
 };
 export type Action =
   | { type: "ADD"; payload: ExpenseItem }
-  | { type: "REMOVE"; payload: { id: number } }
+  | { type: "REMOVE"; payload: number }
   | { type: "EDIT"; payload: ExpenseItem }
   | { type: "SORT"; payload: ExpenseItem[] }
   | { type: "SET_MESSAGE"; payload: string }
@@ -36,7 +36,7 @@ export function expenseReducer(state: State, action: Action): State {
     case "REMOVE": {
       return {
         ...state,
-        expense: state.expense.filter((item) => item.id !== action.payload.id),
+        expense: state.expense.filter((item) => item.id !== action.payload),
       };
     }
     case "EDIT": {
