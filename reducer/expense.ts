@@ -2,15 +2,17 @@ export type ExpenseItem = {
   id: number;
   title: string;
   category: string;
-  amount: number | null;
+  amount: number;
 };
 export type State = {
   expense: ExpenseItem[];
+  total: number;
   sortedAscending: ExpenseItem[];
   message: string;
 };
 export const initialState = {
   expense: [],
+  total: 0,
   sortedAscending: [],
   message: "",
 };
@@ -20,7 +22,8 @@ export type Action =
   | { type: "EDIT"; payload: ExpenseItem }
   | { type: "SORT"; payload: ExpenseItem[] }
   | { type: "SET_MESSAGE"; payload: string }
-  | { type: "CLEAR_ALL" };
+  | { type: "CLEAR_ALL" }
+  | { type: "GET_TOTAL" };
 
 export function expenseReducer(state: State, action: Action): State {
   switch (action.type) {
@@ -55,6 +58,12 @@ export function expenseReducer(state: State, action: Action): State {
       return {
         ...state,
         sortedAscending: state.expense.sort(),
+      };
+    }
+    case "GET_TOTAL": {
+      return {
+        ...state,
+        total: state.expense.reduce((sum, e) => sum + e.amount, state.total),
       };
     }
     case "SET_MESSAGE": {

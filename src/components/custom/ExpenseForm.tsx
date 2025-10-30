@@ -19,7 +19,7 @@ export default function ExpenseForm() {
     id: Date.now(),
     title: "",
     category: "",
-    amount: null,
+    amount: 1,
   });
 
   function showMessage(text: string) {
@@ -44,6 +44,7 @@ export default function ExpenseForm() {
       showMessage("You can't add an empty item!");
       return;
     }
+    dispatch({ type: "ADD", payload: formInput });
     showMessage("Added succesfully");
     setFormInput({ id: Date.now(), category: "", title: "", amount: 0 });
   }

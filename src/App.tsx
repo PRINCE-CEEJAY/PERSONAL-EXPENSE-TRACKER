@@ -4,12 +4,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/custom/Dashboard";
 import Transactions from "./components/custom/Transactions";
 import Chart from "./components/custom/Chart";
+import ExpenseList from "./components/custom/ExpenseList";
 
 export default function App() {
   const state = useExpenseState();
+  console.log(state.total);
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen min-w-screen text-primary min-w-screen">
+    <div className="flex flex-col justify-center items-center min-h-screen text-primary min-w-screen">
       <p className="text-center animate-bounce ">{state.message}</p>
+      <ExpenseList />
       <Router>
         <Routes>
           <Route path="/" element={<ExpenseForm />} />
